@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BibliotecaApp {
 
@@ -9,7 +10,7 @@ public class BibliotecaApp {
         Library library = getLibrary();
         System.out.println(library.welcome());
         Book[] books = library.listBooks();
-        printBooks(books);
+        MenuOptions(books);
     }
 
     private static void printBooks(Book[] books) {
@@ -26,6 +27,33 @@ public class BibliotecaApp {
         books[0] = new Book("Fifty Shades of Grey","Stephen Hawking", "2012" );
         books[1] = new Book("5 Regrets of the Dying","Bronnie Ware", "2016" );
         return new Library(books);
+    }
+
+    private static void displayMainMenu() {
+        System.out.println("1 - List Books");
+        System.out.println("2 - Checkout Book");
+        System.out.println("3 - Return Book");
+        System.out.println("4 - Quit");
+    }
+
+    private static void MenuOptions(Book[] books) {
+        displayMainMenu();
+        Scanner s = new Scanner(System.in);
+        String unavailableOption = "This option is unavailable. Select a valid option!";
+        int userInput = 0;
+        while (userInput != 4) {
+            System.out.println();
+            System.out.print("Enter the number of menu option:");
+            userInput = s.nextInt();
+            System.out.println();
+            switch (userInput) {
+                case 1: printBooks(books); break;
+                case 2: System.out.println(unavailableOption); break;
+                case 3: System.out.println(unavailableOption); break;
+                case 4: break;
+            }
+        }
+
     }
 
 }
