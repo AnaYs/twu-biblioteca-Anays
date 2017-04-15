@@ -18,10 +18,11 @@ import static org.junit.Assert.assertTrue;
 public class LibraryTest {
 
     Library library;
+    Book[] books;
 
     @Before
     public void before() {
-        Book[] books = new Book[2];
+        books = new Book[2];
         books[0] = new Book("Fifty Shades of Grey","Stephen Hawking", "2012" );
         books[1] = new Book("5 Regrets of the Dying","Bronnie Ware", "2016" );
         library  = new Library(books);
@@ -32,9 +33,6 @@ public class LibraryTest {
     }
     @Test
     public void whenLibraryIsLaunchedListsBooks() throws Exception {
-        Book[] actualBookList = library.listBooks();
-        Book book = new Book("Fifty Shades of Grey","Stephen Hawking", "2012" );
-        Assert.assertEquals(library.listBooks()[0].getTitle(), book.getTitle());
-
+        Assert.assertEquals(library.listBooks()[0].getTitle(), books[0].getTitle());
     }
 }
