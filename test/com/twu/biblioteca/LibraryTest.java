@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +11,9 @@ import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsCollectionContaining.hasItem;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class LibraryTest {
 
@@ -18,18 +21,20 @@ public class LibraryTest {
 
     @Before
     public void before() {
-       library  = new Library();
+        Book[] books = new Book[2];
+        books[0] = new Book("Fifty Shades of Grey","Stephen Hawking", "2012" );
+        books[1] = new Book("5 Regrets of the Dying","Bronnie Ware", "2016" );
+        library  = new Library(books);
     }
     @Test
     public void whenLibraryIsLaunchedDisplaysWelcomeMessage() throws Exception {
         Assert.assertEquals("Welcome to your library!", library.launch());
     }
-
     @Test
     public void whenLibraryIsLaunchedListsBooks() throws Exception {
-        List<String> expectedBooks;
-        expectedBooks = Arrays.asList("Fifty Shades of Grey", "5 Regrets of the Dying");
-        List<String> actualBooks = library.listBooks();
-        Assert.assertEquals(actualBooks, expectedBooks);
+        Book[] actualBookList = library.listBooks();
+        Book book = new Book("Fifty Shades of Grey","Stephen Hawking", "2012" );
+        Assert.assertEquals(library.listBooks()[0].getTitle(), book.getTitle());
+
     }
 }

@@ -7,9 +7,11 @@ import java.util.List;
  * Created by isabellamers on 15/04/17.
  */
 public class Library {
+    private Book[] books;
 
-
-
+    public Library(Book[] givenBooks) {
+        books = givenBooks;
+    }
 
     public static String launch() {
         String welcomeMessage = "Welcome to your library!";
@@ -17,9 +19,8 @@ public class Library {
         return welcomeMessage;
     }
 
-    public static List<String> listBooks() {
-        List<String> availableBooks = Arrays.asList("Fifty Shades of Grey", "5 Regrets of the Dying");
-        System.out.print(availableBooks);
-        return availableBooks;
+    public Book[] listBooks() {
+        System.out.print(Arrays.toString(books));
+        return books;
     }
 }
