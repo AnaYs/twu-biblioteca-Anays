@@ -28,7 +28,7 @@ public class LibraryTest {
     }
     @Test
     public void whenLibraryIsLaunchedDisplaysWelcomeMessage() throws Exception {
-        Assert.assertEquals("Welcome to your library!", library.launch());
+        Assert.assertEquals("Welcome to your library!", library.welcome());
     }
     @Test
     public void whenLibraryIsLaunchedListsBooks() throws Exception {

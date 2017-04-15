@@ -7,7 +7,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         Library library = getLibrary();
-        library.launch();
+        System.out.println(library.welcome());
         Book[] books = library.listBooks();
         printBooks(books);
     }

@@ -13,9 +13,8 @@ public class Library {
         books = givenBooks;
     }
 
-    public static String launch() {
+    public static String welcome() {
         String welcomeMessage = "Welcome to your library!";
-        System.out.println(welcomeMessage);
         return welcomeMessage;
     }
 
