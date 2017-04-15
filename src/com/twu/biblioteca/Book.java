@@ -10,6 +10,12 @@ public class Book {
     private String author;
     private String year;
 
+    public Book (String t, String a, String y) {
+        title = t;
+        author = a;
+        year = y;
+    }
+
     String getTitle() {
         return title;
     }

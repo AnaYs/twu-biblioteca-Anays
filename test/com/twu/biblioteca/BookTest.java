@@ -11,27 +11,24 @@ public class BookTest {
 
     @Before
     public void before() {
-        book = new Book();
+        book = new Book("Fifty Shades of Grey","Stephen Hawking", "2012" );
     }
 
     @Test
     public void getBookTitle() throws Exception {
         String expectedTitle = "Fifty Shades of Grey";
-        book.setTitle(expectedTitle);
         Assert.assertEquals(book.getTitle(), expectedTitle);
     }
 
     @Test
     public void getBookAuthor() throws Exception {
         String expectedAuthor = "Stephen Hawking";
-        book.setAuthor(expectedAuthor);
         Assert.assertEquals(book.getAuthor(), expectedAuthor);
     }
 
     @Test
     public void getYearPublished() throws Exception {
         String expectedYear = "2012";
-        book.setYear(expectedYear);
         Assert.assertEquals(book.getYear(), expectedYear);
     }
 }
