@@ -7,8 +7,8 @@ import java.time.Year;
  */
 public class Book {
     private String title;
-    String author;
-    Year year;
+    private String author;
+    private String year;
 
     String getTitle() {
         return title;
@@ -16,5 +16,21 @@ public class Book {
 
     void setTitle(String bookTitle) {
         title = bookTitle;
+    }
+
+    String getAuthor() {
+        return author;
+    }
+
+    void setAuthor(String authorName) {
+        author = authorName;
+    }
+
+    String getYear() {
+        return year;
+    }
+
+    void setYear(String yearPublished) {
+        year = yearPublished;
     }
 }
