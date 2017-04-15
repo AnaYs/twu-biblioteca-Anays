@@ -20,7 +20,6 @@ public class Library {
     }
 
     public Book[] listBooks() {
-        System.out.print(Arrays.toString(books));
         return books;
     }
 }
