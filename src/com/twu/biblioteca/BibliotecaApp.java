@@ -6,5 +6,6 @@ public class BibliotecaApp {
         System.out.println("Hello, world!");
         Library library = new Library();
         library.launch();
+        library.listBooks();
     }
 }
