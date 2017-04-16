@@ -13,9 +13,9 @@ public class BibliotecaApp {
     }
 
     private static void displayMainMenu() {
-        System.out.println("1 - List Books");
-        System.out.println("2 - Checkout Book");
-        System.out.println("3 - Return Book");
+        System.out.println("1 - List all books");
+        System.out.println("2 - Borrow a book");
+        System.out.println("3 - Return a book");
         System.out.println("4 - Quit");
     }
 
@@ -55,7 +55,7 @@ public class BibliotecaApp {
     }
 
     private static void checkIn() {
-        System.out.println("Indicate number of the book you would like to return:");
+        System.out.println("Indicate number of the ook you would like to return:");
         Scanner s = new Scanner(System.in);
         int userInput = s.nextInt() - 1;
         try {
