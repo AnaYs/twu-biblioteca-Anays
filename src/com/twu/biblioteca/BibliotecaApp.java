@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BibliotecaApp {
+    static Library library = new Library();
 
     public static void main(String[] args) {
-        Library library = new Library();
         library.welcome();
         MenuOptions(library);
     }
@@ -31,12 +31,26 @@ public class BibliotecaApp {
             System.out.println();
             switch (userInput) {
                 case 1: library.printBooks(); break;
-                case 2: System.out.println(unavailableOption); break;
+                case 2: checkOut(); break;
                 case 3: System.out.println(unavailableOption); break;
                 case 4: break;
             }
         }
 
+    }
+
+    private static void checkOut() {
+        System.out.println("Indicate number of Book you would like to borrow:");
+        Scanner s = new Scanner(System.in);
+        int userInput = s.nextInt() - 1;
+        try {
+            library.checkOut(userInput);
+            System.out.println("Thank you! Enjoy the book");
+        } catch (Exception e) {
+            System.out.println("That book is not available.");
+        }
+        System.out.println("\n");
+        displayMainMenu();
     }
 
 }

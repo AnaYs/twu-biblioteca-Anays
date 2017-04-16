@@ -33,7 +33,8 @@ public class LibraryTest {
     }
     @Test
     public void whenBookIsCheckedOutItIsNoLongerListed() throws Exception {
-        testLibrary.checkOut(testBook1);
+        int index = testLibrary.listBooks().indexOf(testBook1);
+        testLibrary.checkOut(index);
         Assert.assertFalse(testLibrary.listBooks().contains(testBook1));
     }
 }

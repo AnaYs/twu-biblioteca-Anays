@@ -25,16 +25,15 @@ public class Library {
 
     public void printBooks() {
         System.out.print("\033[0;1m");
-        System.out.printf("%-30s %-20s %-20s\n", "Title", "Author", "Year");
+        System.out.printf("%-10s %-30s %-20s %-20s\n", "", "Title", "Author", "Year");
         System.out.print("\033[0;0m");
-        for(int i = 0; 2 > i; i++) {
-            System.out.printf("%-30s %-20s %-20s\n", books.get(i).getTitle(), books.get(i).getAuthor(), books.get(i).getYear());
+        for(int i = 0; books.size() > i; i++) {
+            System.out.printf("%-10s %-30s %-20s %-20s\n", i+1, books.get(i).getTitle(), books.get(i).getAuthor(), books.get(i).getYear());
         }
     }
 
-    public static void checkOut(Book book){
-        books.remove(book);
-        //ImplementArrayList for book array and remove or add
+    public static Book checkOut(int index){
+        return books.remove(index);
         //Suggest availableBooks variable and CheckedOutBooks variable
     }
 }
