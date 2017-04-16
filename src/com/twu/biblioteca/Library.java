@@ -1,15 +1,14 @@
 package com.twu.biblioteca;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by isabellamers on 15/04/17.
  */
 public class Library {
-    private Book[] books;
+    private ArrayList<Book> books;
 
-    public Library(Book[] givenBooks) {
+    public Library(ArrayList<Book> givenBooks) {
         books = givenBooks;
     }
 
@@ -18,7 +17,13 @@ public class Library {
         return welcomeMessage;
     }
 
-    public Book[] listBooks() {
+    public ArrayList<Book> listBooks() {
         return books;
+    }
+
+    public static void checkOut(Book book){
+
+        //ImplementArrayList for book array and remove or add
+        //Suggest availableBooks variable and CheckedOutBooks variable
     }
 }
