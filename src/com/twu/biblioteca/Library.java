@@ -31,6 +31,10 @@ public class Library {
         for(int i = 0; availableBooks.size() > i; i++) {
             System.out.printf("%-10s %-30s %-20s %-20s\n", i+1, availableBooks.get(i).getTitle(), availableBooks.get(i).getAuthor(), availableBooks.get(i).getYear());
         }
+        System.out.println("-----------------------Rented------------------------");
+        for(int i = 0; rentedBooks.size() > i; i++) {
+            System.out.printf("%-10s %-30s %-20s %-20s\n", i+1, rentedBooks.get(i).getTitle(), rentedBooks.get(i).getAuthor(), rentedBooks.get(i).getYear());
+        }
     }
 
     public void checkOut(int index){

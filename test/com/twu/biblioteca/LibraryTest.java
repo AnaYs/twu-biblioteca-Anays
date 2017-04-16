@@ -46,5 +46,9 @@ public class LibraryTest {
         testLibrary.checkOut(0);
         Assert.assertEquals("Fifty Shades of Grey", testLibrary.listRentedBooks().get(0).getTitle());
     }
+    @Test
+    public void whenBookIsReturnedItIsDisplayedAsAvailable() throws Exception {
+
+    }
 
 }
