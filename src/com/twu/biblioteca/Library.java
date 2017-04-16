@@ -6,11 +6,12 @@ import java.util.ArrayList;
  * Created by isabellamers on 15/04/17.
  */
 public class Library {
-    private static ArrayList<Book> books = new ArrayList<Book>();
+    public static ArrayList<Book> availableBooks = new ArrayList<Book>();
+    private static ArrayList<Book> rentedBooks = new ArrayList<Book>();
 
     public Library() {
-        books.add(new Book("Fifty Shades of Grey","Stephen Hawking", "2012" ));
-        books.add(new Book("5 Regrets of the Dying","Bronnie Ware", "2016" ));
+        availableBooks.add(0, new Book("Fifty Shades of Grey","Stephen Hawking", "2012" ));
+        availableBooks.add(1, new Book("5 Regrets of the Dying","Bronnie Ware", "2016" ));
     }
 
     public static String welcome() {
@@ -19,21 +20,23 @@ public class Library {
         return welcomeMessage;
     }
 
-    public ArrayList<Book> listBooks() {
-        return books;
+    public ArrayList<Book> listRentedBooks() {
+        return rentedBooks;
     }
 
     public void printBooks() {
         System.out.print("\033[0;1m");
         System.out.printf("%-10s %-30s %-20s %-20s\n", "", "Title", "Author", "Year");
         System.out.print("\033[0;0m");
-        for(int i = 0; books.size() > i; i++) {
-            System.out.printf("%-10s %-30s %-20s %-20s\n", i+1, books.get(i).getTitle(), books.get(i).getAuthor(), books.get(i).getYear());
+        for(int i = 0; availableBooks.size() > i; i++) {
+            System.out.printf("%-10s %-30s %-20s %-20s\n", i+1, availableBooks.get(i).getTitle(), availableBooks.get(i).getAuthor(), availableBooks.get(i).getYear());
         }
     }
 
-    public static Book checkOut(int index){
-        return books.remove(index);
-        //Suggest availableBooks variable and CheckedOutBooks variable
+    public void checkOut(int index){
+        Book book = availableBooks.get(index);
+        book.rent();
+        availableBooks.remove(book);
+        rentedBooks.add(book);
     }
 }

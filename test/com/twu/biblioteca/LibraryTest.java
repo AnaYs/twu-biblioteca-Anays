@@ -18,23 +18,33 @@ import static org.junit.Assert.assertTrue;
 
 public class LibraryTest {
 
-    Library testLibrary = new Library();
+    Library testLibrary;
     Book testBook1 = new Book("Fifty Shades of Grey","Stephen Hawking", "2012" );
     Book testBook2 = new Book("5 Regrets of the Dying","Bronnie Ware", "2016" );
+
+    @Before
+    public void before () {
+        testLibrary = new Library();
+    }
 
     @Test
     public void whenLibraryIsLaunchedDisplaysWelcomeMessage() throws Exception {
         Assert.assertEquals("Welcome to your library!", testLibrary.welcome());
     }
     @Test
-    public void whenLibraryIsLaunchedListsBooks() throws Exception {
+    public void LibraryListsBooks() throws Exception {
         String expectedBookTitle = testBook1.getTitle();
-        Assert.assertEquals(expectedBookTitle, testLibrary.listBooks().get(0).getTitle());
+        Assert.assertEquals(expectedBookTitle, testLibrary.availableBooks.get(0).getTitle());
     }
     @Test
     public void whenBookIsCheckedOutItIsNoLongerListed() throws Exception {
-        int index = testLibrary.listBooks().indexOf(testBook1);
-        testLibrary.checkOut(index);
-        Assert.assertFalse(testLibrary.listBooks().contains(testBook1));
+        testLibrary.checkOut(0);
+        Assert.assertEquals("5 Regrets of the Dying", testLibrary.availableBooks.get(0).getTitle());
     }
+    @Test
+    public void whenBookIsCheckedOutItIsDisplayedAsRented() throws Exception {
+        testLibrary.checkOut(0);
+        Assert.assertEquals("Fifty Shades of Grey", testLibrary.listRentedBooks().get(0).getTitle());
+    }
+
 }

@@ -31,4 +31,10 @@ public class BookTest {
         String expectedYear = "2012";
         Assert.assertEquals(book.getYear(), expectedYear);
     }
+
+    @Test
+    public void rent() throws Exception {
+        book.rent();
+        Assert.assertEquals(true, book.rented());
+    }
 }
