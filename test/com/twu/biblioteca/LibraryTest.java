@@ -51,7 +51,6 @@ public class LibraryTest {
     public void whenBookIsReturnedItIsDisplayedAsAvailable() throws Exception {
         testLibrary.checkOut(0);
         testLibrary.checkIn(0);
-        testLibrary.printBooks();
         String expectedBookTitle = testBook1.getTitle();
         ArrayList<String> bookTitles = new ArrayList<String>();
         for(int i = 0; testLibrary.availableBooks.size() > i; i++) {

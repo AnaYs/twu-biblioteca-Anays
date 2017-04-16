@@ -32,15 +32,16 @@ public class BibliotecaApp {
             switch (userInput) {
                 case 1: library.printBooks(); break;
                 case 2: checkOut(); break;
-                case 3: System.out.println(unavailableOption); break;
+                case 3: checkIn(); break;
                 case 4: break;
+                default: System.err.println(unavailableOption); continue;
             }
         }
 
     }
 
     private static void checkOut() {
-        System.out.println("Indicate number of Book you would like to borrow:");
+        System.out.println("Indicate number of the book you would like to borrow:");
         Scanner s = new Scanner(System.in);
         int userInput = s.nextInt() - 1;
         try {
@@ -48,6 +49,20 @@ public class BibliotecaApp {
             System.out.println("Thank you! Enjoy the book");
         } catch (Exception e) {
             System.out.println("That book is not available.");
+        }
+        System.out.println("\n");
+        displayMainMenu();
+    }
+
+    private static void checkIn() {
+        System.out.println("Indicate number of the book you would like to return:");
+        Scanner s = new Scanner(System.in);
+        int userInput = s.nextInt() - 1;
+        try {
+            library.checkIn(userInput);
+            System.out.println("Thank you for returning the book.");
+        } catch (Exception e) {
+            System.out.println("That is not a valid book to return.");
         }
         System.out.println("\n");
         displayMainMenu();
