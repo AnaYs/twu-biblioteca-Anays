@@ -37,7 +37,6 @@ public class BibliotecaApp {
                 default: System.err.println(unavailableOption); continue;
             }
         }
-
     }
 
     private static void checkOut() {
@@ -55,16 +54,22 @@ public class BibliotecaApp {
     }
 
     private static void checkIn() {
-        System.out.println("Indicate number of the ook you would like to return:");
-        Scanner s = new Scanner(System.in);
-        int userInput = s.nextInt() - 1;
-        try {
-            library.checkIn(userInput);
-            System.out.println("Thank you for returning the book.");
-        } catch (Exception e) {
-            System.out.println("That is not a valid book to return.");
+        if (library.listRentedBooks().isEmpty()) {
+            System.out.println("Nothing to return.");
+            return;
+        } else {
+            library.printRentedBooks();
+            System.out.println("Indicate number of the book you would like to return:");
+            Scanner s = new Scanner(System.in);
+            int userInput = s.nextInt() - 1;
+            try {
+                library.checkIn(userInput);
+                System.out.println("Thank you for returning the book.");
+            } catch (Exception e) {
+                System.out.println("That is not a valid book to return.");
+            }
+            System.out.println("\n");
         }
-        System.out.println("\n");
         displayMainMenu();
     }
 
