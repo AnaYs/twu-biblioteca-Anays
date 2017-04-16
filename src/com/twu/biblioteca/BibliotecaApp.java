@@ -7,26 +7,9 @@ import java.util.Scanner;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
-        Library library = getLibrary();
-        System.out.println(library.welcome());
-        ArrayList<Book> books = library.listBooks();
-        MenuOptions(books);
-    }
-
-    private static void printBooks(ArrayList<Book> books) {
-        System.out.print("\033[0;1m");
-        System.out.printf("%-30s %-20s %-20s\n", "Title", "Author", "Year");
-        System.out.print("\033[0;0m");
-        for(int i = 0; 2 > i; i++) {
-            System.out.printf("%-30s %-20s %-20s\n", books.get(i).getTitle(), books.get(i).getAuthor(), books.get(i).getYear());
-        }
-    }
-
-    private static Library getLibrary() {
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Fifty Shades of Grey","Stephen Hawking", "2012" ));
-        books.add(new Book("5 Regrets of the Dying","Bronnie Ware", "2016" ));
-        return new Library(books);
+        Library library = new Library();
+        library.welcome();
+        MenuOptions(library);
     }
 
     private static void displayMainMenu() {
@@ -36,7 +19,7 @@ public class BibliotecaApp {
         System.out.println("4 - Quit");
     }
 
-    private static void MenuOptions(ArrayList<Book> books) {
+    private static void MenuOptions(Library library) {
         displayMainMenu();
         Scanner s = new Scanner(System.in);
         String unavailableOption = "This option is unavailable. Select a valid option!";
@@ -47,7 +30,7 @@ public class BibliotecaApp {
             userInput = s.nextInt();
             System.out.println();
             switch (userInput) {
-                case 1: printBooks(books); break;
+                case 1: library.printBooks(); break;
                 case 2: System.out.println(unavailableOption); break;
                 case 3: System.out.println(unavailableOption); break;
                 case 4: break;
