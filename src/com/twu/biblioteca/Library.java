@@ -43,4 +43,10 @@ public class Library {
         availableBooks.remove(book);
         rentedBooks.add(book);
     }
+
+    public void checkIn(int index) {
+        Book book = rentedBooks.get(index);
+        rentedBooks.remove(book);
+        availableBooks.add(book);
+    }
 }

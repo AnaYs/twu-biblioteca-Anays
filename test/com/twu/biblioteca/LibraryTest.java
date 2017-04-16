@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.sun.tools.javac.util.ArrayUtils;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,11 +11,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsCollectionContaining.hasItem;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class LibraryTest {
 
@@ -48,7 +49,15 @@ public class LibraryTest {
     }
     @Test
     public void whenBookIsReturnedItIsDisplayedAsAvailable() throws Exception {
-
+        testLibrary.checkOut(0);
+        testLibrary.checkIn(0);
+        testLibrary.printBooks();
+        String expectedBookTitle = testBook1.getTitle();
+        ArrayList<String> bookTitles = new ArrayList<String>();
+        for(int i = 0; testLibrary.availableBooks.size() > i; i++) {
+            bookTitles.add(testLibrary.availableBooks.get(i).getTitle());
+        }
+        Assert.assertTrue(bookTitles.contains(expectedBookTitle));
     }
 
 }
