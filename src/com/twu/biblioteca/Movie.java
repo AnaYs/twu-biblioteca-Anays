@@ -23,4 +23,6 @@ public class Movie {
     String getDirector() { return director; }
 
     String getRating() { return rating; }
+
+    String getDetails() { return name + ", " + year + ", " + director; }
 }

@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,5 +34,11 @@ public class MovieTest {
     public void getRating() throws Exception {
         String expectedRating = "3";
         Assert.assertEquals(movie.getRating(), expectedRating);
+    }
+
+    @Test
+    public void getDetails() throws Exception {
+        String expectedDetail = "Steven";
+        Assert.assertThat(movie.getDetails(), CoreMatchers.containsString(expectedDetail));
     }
 }

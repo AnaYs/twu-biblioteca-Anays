@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1223872-698e-4085-a87c-47aba408a9b3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +37,8 @@
           <file leaf-file-name="MovieTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="76">
-                  <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+                <state relative-caret-position="80">
+                  <caret line="40" column="38" lean-forward="false" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -64,8 +63,8 @@
           <file leaf-file-name="Movie.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="176">
-                  <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+                <state relative-caret-position="155">
+                  <caret line="26" column="69" lean-forward="false" selection-start-line="26" selection-start-column="69" selection-end-line="26" selection-end-column="69" />
                   <folding />
                 </state>
               </provider>
@@ -116,8 +115,8 @@
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/BookTest.java" />
         <option value="$PROJECT_DIR$/test/MovieTest.java" />
-        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java" />
+        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java" />
       </list>
     </option>
   </component>
@@ -650,14 +649,14 @@
     <history-entry file="All_in_biblioteca - 2017.04.24 at 12h 41m 02s.xml">
       <configuration name="All in biblioteca" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LibraryTest_whenBookIsReturnedItIsDisplayedAsAvailable - 2017.04.16 at 16h 12m 53s.xml">
-      <configuration name="LibraryTest.whenBookIsReturnedItIsDisplayedAsAvailable" configurationId="JUnit" />
+    <history-entry file="All_in_biblioteca - 2017.04.24 at 12h 45m 00s.xml">
+      <configuration name="All in biblioteca" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovieTest_getYear - 2017.04.24 at 12h 20m 46s.xml">
-      <configuration name="MovieTest.getYear" configurationId="JUnit" />
+    <history-entry file="All_in_biblioteca - 2017.04.24 at 12h 45m 11s.xml">
+      <configuration name="All in biblioteca" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovieTest_getYear - 2017.04.24 at 12h 20m 58s.xml">
-      <configuration name="MovieTest.getYear" configurationId="JUnit" />
+    <history-entry file="All_in_biblioteca - 2017.04.24 at 12h 46m 19s.xml">
+      <configuration name="All in biblioteca" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MovieTest_getYear - 2017.04.24 at 12h 37m 59s.xml">
       <configuration name="MovieTest.getYear" configurationId="JUnit" />
@@ -1165,21 +1164,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="155">
+          <caret line="26" column="69" lean-forward="false" selection-start-line="26" selection-start-column="69" selection-end-line="26" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java">
+    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="80">
+          <caret line="40" column="38" lean-forward="false" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
