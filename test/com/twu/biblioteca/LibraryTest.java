@@ -9,19 +9,23 @@ import java.util.ArrayList;
 
 public class LibraryTest {
 
-    Library testLibrary;
+    Library testLibrary = new Library();
     Book testBook1 = new Book("Fifty Shades of Grey","Stephen Hawking", "2012" );
     Book testBook2 = new Book("5 Regrets of the Dying","Bronnie Ware", "2016" );
 
-    @Before
-    public void before () {
-        testLibrary = new Library();
-    }
 
     @Test
     public void whenLibraryIsLaunchedDisplaysWelcomeMessage() throws Exception {
         Assert.assertEquals("Welcome to your library!", testLibrary.welcome());
     }
+
+    @Test
+    public void login() throws Exception {
+        String libraryNumber = "LIB-5577";
+        String password = "456ef";
+        Assert.assertTrue(testLibrary.login(libraryNumber, password));
+    }
+
     @Test
     public void LibraryListsBooks() throws Exception {
         String expectedBookTitle = testBook1.getTitle();
@@ -62,11 +66,8 @@ public class LibraryTest {
     @Test
     public void whenMovieIsCheckedOutIsIsNoLongerAvailable() throws Exception {
         testLibrary.checkOutMovie(0);
-        ArrayList<String> movieDetails = new ArrayList<String>();
-        for(int i = 0; testLibrary.listMovies().size() > i; i++) {
-            movieDetails.add(testLibrary.listMovies().get(i).getDetails());
-        }
-        Assert.assertTrue(movieDetails.isEmpty());
+        System.out.print(testLibrary.listMovies());
+        Assert.assertTrue(testLibrary.listMovies().size() == 0);
     }
 
 }

@@ -10,11 +10,13 @@ public class Library {
     public static ArrayList<Book> availableBooks = new ArrayList<Book>();
     private static ArrayList<Book> rentedBooks = new ArrayList<Book>();
     private static ArrayList<Movie> availableMovies = new ArrayList<Movie>();
+    private static ArrayList<User> registeredUsers = new ArrayList<User>();
 
     public Library() {
         availableBooks.add(0, new Book("Fifty Shades of Grey","Stephen Hawking", "2012" ));
         availableBooks.add(1, new Book("5 Regrets of the Dying","Bronnie Ware", "2016" ));
-        availableMovies.add( new Movie("Batman", "1967", "Marvel", "3"));
+        availableMovies.add( 0, new Movie("Batman", "1967", "Marvel", "3"));
+        registeredUsers.add( 0, new User ("LIB-5577", "456ef" ));
     }
 
     public static String welcome() {
@@ -23,12 +25,25 @@ public class Library {
         return welcomeMessage;
     }
 
+    public boolean login(String l, String p) {
+        Boolean login = false;
+        for(int i = 0; registeredUsers.size() > i; i++) {
+            User user = registeredUsers.get(i);
+            if (user.verify(l,p)) {
+                login = true;
+                break;
+            }
+        }
+        return login;
+    }
+
     public ArrayList<Book> listRentedBooks() {
         return rentedBooks;
     }
     public ArrayList<Movie> listMovies() { return availableMovies; }
 
     public void printBooks() {
+        System.out.println("----------------------------------------- Books ------------------------------------------");
         System.out.print("\033[0;1m");
         System.out.printf("%-10s %-30s %-20s %-20s\n", "", "Title", "Author", "Year");
         System.out.print("\033[0;0m");
@@ -48,7 +63,7 @@ public class Library {
 
     public void checkOut(int index){
         Book book = availableBooks.get(index);
-        book.rent();
+        book.rent("LIB-5577");
         availableBooks.remove(book);
         rentedBooks.add(book);
     }

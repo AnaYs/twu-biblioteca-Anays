@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -43,7 +44,28 @@ public class BibliotecaApp {
         }
     }
 
+    private static void requestLogin() {
+        System.out.println("Please login to rent and return books from the library.");
+        Boolean loginSuccess = attemptLogin();
+        while (!loginSuccess) {
+            System.out.println("These credentials are incorrect. You need to login to access the library.");
+            loginSuccess = attemptLogin();
+        }
+        System.out.println("Thank you for signing in.");
+    }
+    private static boolean attemptLogin() {
+        Console console = System.console();
+        System.out.print("Library Number (format xxx-xxxx): ");
+        Scanner sl = new Scanner(System.in);
+        String libraryNumber = sl.nextLine();
+        System.out.print("Password: ");
+        Scanner sp = new Scanner(System.in);
+        String password = sp.nextLine();
+        return library.login(libraryNumber, password);
+    }
+
     private static void checkOut() {
+        requestLogin();
         System.out.println("Indicate number of the book you would like to borrow:");
         Scanner s = new Scanner(System.in);
         int userInput = s.nextInt() - 1;
@@ -63,15 +85,16 @@ public class BibliotecaApp {
         int userInput = s.nextInt() - 1;
         try {
             library.checkOutMovie(userInput);
-            System.out.println("Thank you! Enjoy the book");
+            System.out.println("Thank you! Enjoy the movie");
         } catch (Exception e) {
-            System.out.println("That book is not available.");
+            System.out.println("That movie is not available.");
         }
         System.out.println("\n");
         displayMainMenu();
     }
 
     private static void checkIn() {
+        requestLogin();
         if (library.listRentedBooks().isEmpty()) {
             System.out.println("Nothing to return.");
             return;

@@ -33,8 +33,11 @@ public class BookTest {
     }
 
     @Test
-    public void rent() throws Exception {
-        book.rent();
+    public void aBookIsRentedByAUser() throws Exception {
+        String libraryNumber = "LIB-5577";
+        book.rent(libraryNumber);
         Assert.assertEquals(true, book.rented());
+        Assert.assertEquals(libraryNumber, book.getRentedBy());
     }
+
 }

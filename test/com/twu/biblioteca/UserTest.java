@@ -10,7 +10,7 @@ import org.junit.Test;
 public class UserTest {
     User user;
     String libraryNumber = "LIB-5577";
-    char[] password = {4, 5, 6, 15, 3};
+    String password = "456ef";
 
     @Before
     public void before() {

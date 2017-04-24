@@ -10,6 +10,7 @@ public class Book {
     private String author;
     private String year;
     private boolean rented;
+    private String rentedBy;
 
     public Book (String t, String a, String y) {
         title = t;
@@ -19,8 +20,12 @@ public class Book {
     }
 
     boolean rented() { return rented; }
+    public String getRentedBy() { return rentedBy; }
 
-    public void rent() { rented = true; }
+    public void rent(String userLibraryNumber) {
+        rented = true;
+        rentedBy = userLibraryNumber;
+    }
 
     String getTitle() {
         return title;
