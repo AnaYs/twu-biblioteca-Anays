@@ -11,12 +11,13 @@ public class Library {
     private static ArrayList<Book> rentedBooks = new ArrayList<Book>();
     private static ArrayList<Movie> availableMovies = new ArrayList<Movie>();
     private static ArrayList<User> registeredUsers = new ArrayList<User>();
+    public static User currentUser;
 
     public Library() {
         availableBooks.add(0, new Book("Fifty Shades of Grey","Stephen Hawking", "2012" ));
         availableBooks.add(1, new Book("5 Regrets of the Dying","Bronnie Ware", "2016" ));
         availableMovies.add( 0, new Movie("Batman", "1967", "Marvel", "3"));
-        registeredUsers.add( 0, new User ("LIB-5577", "456ef" ));
+        registeredUsers.add( 0, new User ( "Steven", "043448555", "test@test.com","LIB-5577", "456ef" ));
     }
 
     public static String welcome() {
@@ -31,6 +32,7 @@ public class Library {
             User user = registeredUsers.get(i);
             if (user.verify(l,p)) {
                 login = true;
+                currentUser = user;
                 break;
             }
         }

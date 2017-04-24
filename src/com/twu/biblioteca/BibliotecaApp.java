@@ -19,7 +19,12 @@ public class BibliotecaApp {
         System.out.println("3 - Return a book");
         System.out.println("4 - List all movies");
         System.out.println("5 - Borrow a movie");
-        System.out.println("6 - Quit");
+        if (library.currentUser != null) {
+            System.out.println("6 - Show my contact information");
+            System.out.println("7 - Quit");
+        } else {
+            System.out.println("6 - Quit");
+        }
     }
 
     private static void MenuOptions(Library library) {
@@ -27,7 +32,7 @@ public class BibliotecaApp {
         Scanner s = new Scanner(System.in);
         String unavailableOption = "This option is unavailable. Select a valid option!";
         int userInput = 0;
-        while (userInput != 6) {
+        while (userInput != 8) {
             System.out.println();
             System.out.print("Enter the number of menu option:");
             userInput = s.nextInt();
@@ -38,7 +43,23 @@ public class BibliotecaApp {
                 case 3: checkIn(); break;
                 case 4: library.printMovies(); break;
                 case 5: checkOutMovie();
-                case 6: System.out.println("Good bye!"); break;
+                case 6:
+                    if (library.currentUser != null) {
+                        printUserDetails(); break;
+                    }
+                    else {
+                        System.out.println("Good bye!");
+                        userInput = 8;
+                        break;
+                    }
+                case 7:
+                    if (library.currentUser != null) {
+                        System.out.println("Good bye!");
+                        userInput = 8;
+                        break;
+                    } else {
+                        System.err.println(unavailableOption); continue;
+                    }
                 default: System.err.println(unavailableOption); continue;
             }
         }
@@ -54,7 +75,6 @@ public class BibliotecaApp {
         System.out.println("Thank you for signing in.");
     }
     private static boolean attemptLogin() {
-        Console console = System.console();
         System.out.print("Library Number (format xxx-xxxx): ");
         Scanner sl = new Scanner(System.in);
         String libraryNumber = sl.nextLine();
@@ -65,7 +85,8 @@ public class BibliotecaApp {
     }
 
     private static void checkOut() {
-        requestLogin();
+        if (library.currentUser == null) requestLogin();
+        library.printBooks();
         System.out.println("Indicate number of the book you would like to borrow:");
         Scanner s = new Scanner(System.in);
         int userInput = s.nextInt() - 1;
@@ -94,9 +115,10 @@ public class BibliotecaApp {
     }
 
     private static void checkIn() {
-        requestLogin();
+        if (library.currentUser == null) requestLogin();
         if (library.listRentedBooks().isEmpty()) {
             System.out.println("Nothing to return.");
+            displayMainMenu();
             return;
         } else {
             library.printRentedBooks();
@@ -112,6 +134,11 @@ public class BibliotecaApp {
             System.out.println("\n");
         }
         displayMainMenu();
+    }
+
+    private static void printUserDetails() {
+        System.out.println(library.currentUser.getDetails());
+
     }
 
 }
