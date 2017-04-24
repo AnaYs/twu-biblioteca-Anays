@@ -16,7 +16,8 @@ public class BibliotecaApp {
         System.out.println("1 - List all books");
         System.out.println("2 - Borrow a book");
         System.out.println("3 - Return a book");
-        System.out.println("4 - Quit");
+        System.out.println("4 - List all movies");
+        System.out.println("5 - Quit");
     }
 
     private static void MenuOptions(Library library) {
@@ -24,7 +25,7 @@ public class BibliotecaApp {
         Scanner s = new Scanner(System.in);
         String unavailableOption = "This option is unavailable. Select a valid option!";
         int userInput = 0;
-        while (userInput != 4) {
+        while (userInput != 5) {
             System.out.println();
             System.out.print("Enter the number of menu option:");
             userInput = s.nextInt();
@@ -33,7 +34,8 @@ public class BibliotecaApp {
                 case 1: library.printBooks(); break;
                 case 2: checkOut(); break;
                 case 3: checkIn(); break;
-                case 4: break;
+                case 4: library.printMovies(); break;
+                case 5: System.out.println("Good bye!"); break;
                 default: System.err.println(unavailableOption); continue;
             }
         }

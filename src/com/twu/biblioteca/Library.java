@@ -62,7 +62,7 @@ public class Library {
     public void printMovies() {
         System.out.println("------------------------------------- Movies --------------------------------------");
         System.out.print("\033[0;1m");
-        System.out.printf("%-10s %-50s %-20s\n", "", "Movie Details", "Rating");
+        System.out.printf("%-10s %-50s %-20s\n", "", "Movie Details", "Rating (1-10)");
         System.out.print("\033[0;0m");
         for (int i = 0; availableMovies.size() > i; i++) {
             System.out.printf("%-10s %-50s %-20s\n", i + 1, availableMovies.get(i).getDetails(), availableMovies.get(i).getRating());
