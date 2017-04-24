@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -8,10 +9,12 @@ import java.util.ArrayList;
 public class Library {
     public static ArrayList<Book> availableBooks = new ArrayList<Book>();
     private static ArrayList<Book> rentedBooks = new ArrayList<Book>();
+    private static ArrayList<Movie> availableMovies = new ArrayList<Movie>();
 
     public Library() {
         availableBooks.add(0, new Book("Fifty Shades of Grey","Stephen Hawking", "2012" ));
         availableBooks.add(1, new Book("5 Regrets of the Dying","Bronnie Ware", "2016" ));
+        availableMovies.add( new Movie("Batman", "1967", "Marvel", "3"));
     }
 
     public static String welcome() {
@@ -23,6 +26,7 @@ public class Library {
     public ArrayList<Book> listRentedBooks() {
         return rentedBooks;
     }
+    public ArrayList<Movie> listMovies() { return availableMovies; }
 
     public void printBooks() {
         System.out.print("\033[0;1m");
@@ -53,5 +57,16 @@ public class Library {
         Book book = rentedBooks.get(index);
         rentedBooks.remove(book);
         availableBooks.add(book);
+    }
+
+    public void printMovies() {
+        System.out.println("------------------------------------- Movies --------------------------------------");
+        System.out.print("\033[0;1m");
+        System.out.printf("%-10s %-50s %-20s\n", "", "Movie Details", "Rating");
+        System.out.print("\033[0;0m");
+        for (int i = 0; availableMovies.size() > i; i++) {
+            System.out.printf("%-10s %-50s %-20s\n", i + 1, availableMovies.get(i).getDetails(), availableMovies.get(i).getRating());
+        }
+        System.out.print("\n");
     }
 }

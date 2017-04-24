@@ -1,21 +1,11 @@
 package com.twu.biblioteca;
 
-import com.sun.tools.javac.util.ArrayUtils;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsCollectionContaining.hasItem;
-import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
 
@@ -57,6 +47,16 @@ public class LibraryTest {
             bookTitles.add(testLibrary.availableBooks.get(i).getTitle());
         }
         Assert.assertTrue(bookTitles.contains(expectedBookTitle));
+    }
+
+    @Test
+    public void LibraryListsMovies() throws Exception {
+        String expectedMovieDetail = "Batman, 1967, Marvel";
+        ArrayList<String> movieDetails = new ArrayList<String>();
+        for(int i = 0; testLibrary.listMovies().size() > i; i++) {
+            movieDetails.add(testLibrary.listMovies().get(i).getDetails());
+        }
+        Assert.assertTrue(movieDetails.contains(expectedMovieDetail));
     }
 
 }
