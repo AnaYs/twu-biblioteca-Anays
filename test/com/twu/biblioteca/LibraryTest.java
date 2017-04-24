@@ -66,7 +66,6 @@ public class LibraryTest {
     @Test
     public void whenMovieIsCheckedOutIsIsNoLongerAvailable() throws Exception {
         testLibrary.checkOutMovie(0);
-        System.out.print(testLibrary.listMovies());
         Assert.assertTrue(testLibrary.listMovies().size() == 0);
     }
 

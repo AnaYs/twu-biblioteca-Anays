@@ -55,8 +55,12 @@ public class Library {
 
     public void printRentedBooks() {
         System.out.println("------------------------------------- Rented Books --------------------------------------");
+        System.out.print("\033[0;1m");
+        System.out.printf("%-10s %-30s %-20s %-10s %-20s\n", "", "Title", "Author", "Year", "Rented By");
+        System.out.print("\033[0;0m");
             for (int i = 0; rentedBooks.size() > i; i++) {
-                System.out.printf("%-10s %-30s %-20s %-20s\n", i + 1, rentedBooks.get(i).getTitle(), rentedBooks.get(i).getAuthor(), rentedBooks.get(i).getYear());
+                Book book = rentedBooks.get(i);
+                System.out.printf("%-10s %-30s %-20s %-10s %-20s\n", i + 1, book.getTitle(), book.getAuthor(), book.getYear(), book.getRentedBy());
             }
         System.out.print("\n");
     }
