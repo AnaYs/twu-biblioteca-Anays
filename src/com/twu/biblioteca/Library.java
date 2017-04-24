@@ -69,4 +69,9 @@ public class Library {
         }
         System.out.print("\n");
     }
+
+    public void checkOutMovie(int index) {
+        Movie movie = availableMovies.get(index);
+        availableMovies.remove(movie);
+    }
 }

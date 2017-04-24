@@ -59,4 +59,14 @@ public class LibraryTest {
         Assert.assertTrue(movieDetails.contains(expectedMovieDetail));
     }
 
+    @Test
+    public void whenMovieIsCheckedOutIsIsNoLongerAvailable() throws Exception {
+        testLibrary.checkOutMovie(0);
+        ArrayList<String> movieDetails = new ArrayList<String>();
+        for(int i = 0; testLibrary.listMovies().size() > i; i++) {
+            movieDetails.add(testLibrary.listMovies().get(i).getDetails());
+        }
+        Assert.assertTrue(movieDetails.isEmpty());
+    }
+
 }
